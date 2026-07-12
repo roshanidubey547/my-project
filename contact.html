@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>contact me</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .back-home {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: white;
+        text-decoration: none;
+        color: #4f6df5;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgb(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+      .back-home:hover {
+        background: #4f6df5;
+        color: white;
+      }
+
+      .container {
+        width: 450px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .container p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      textarea {
+        resize: none;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .contact-info h3 {
+        margin-bottom: 10px;
+      }
+      .contact-info p {
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html" class="back-home">Back to Home</a>
+    <div class="container">
+      <h1>Contact Me</h1>
+      <p>Feel free to contact me.</p>
+
+      <form>
+        <input type="text" placeholder="Your Name" required autofocus />
+
+        <input type="email" placeholder="Your Email" required />
+
+        <input type="text" placeholder="Subject" required />
+
+        <textarea placeholder="Your Message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact info">
+        <h3>Contact information</h3>
+        <p>Email: roshanidubey51769@gmail.com</p>
+        <p>phone: +91 9931408267</p>
+        <p>location: Bhiar, India</p>
+      </div>
+    </div>
+  </body>
+</html>
