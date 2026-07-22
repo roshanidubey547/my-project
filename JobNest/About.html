@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f5f9ff;
+        color: white;
+      }
+      .section-project h2 {
+        font-size: 32px;
+        color: #222;
+      }
+      .logo span {
+        color: rgb(22, 204, 204);
+      }
+      .logo {
+        color: black;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+
+      .hero {
+        width: 1366px;
+        height: 200px;
+        border: 1px solid rebeccapurple;
+        background-image: url("./images/360_F_514204772_mT0EpTdZkScyiRPn2PInaKaqd88QGrzE.jpg");
+        background-size: 1366px, cover;
+        background-position: center -30px;
+        background-repeat: no-repeat;
+      }
+      .hero-text {
+        text-align: center;
+        flex: 1;
+        line-height: 2pc;
+        padding: 60px;
+        color: burlywood;
+      }
+      .hero-text h1 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .hero-text p {
+        font-family: Arial, sans-serif;
+      }
+
+      .about {
+        width: 80%;
+        margin: 70px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+      }
+      .about-img {
+        width: 50%;
+      }
+
+      .about-img img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      .about-content h4 {
+        color: #2563eb;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .about-content p {
+        font-size: 18px;
+        color: #555;
+        line-height: 32px;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+      .btn:hover {
+        background: #1d4ed8;
+      }
+
+      .mission-section {
+        width: 80%;
+        margin: 50px auto;
+        display: flex;
+        gap: 30px;
+      }
+      .mission-box {
+        flex: 1;
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        background: #edf4ff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .icon i {
+        font-size: 35px;
+        color: #2563eb;
+      }
+      .text-2 h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #111827;
+      }
+      .text-2 p {
+        font-size: 17px;
+        color: #555;
+        line-height: 28px;
+      }
+
+      .choose {
+        width: 80%;
+        margin: 80px auto;
+        text-align: center;
+      }
+      .choose h5 {
+        color: #2563eb;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .choose h1 {
+        font-size: 45px;
+        color: #111827;
+        margin-bottom: 50px;
+      }
+      .choose-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+      }
+      .choose-card {
+        flex: 1;
+        background: #fff;
+        padding: 35px 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+      }
+      .choose-card:hover {
+        transform: translate(-8px);
+      }
+      .choose-icon {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        border-radius: 50%;
+        background: #edf4ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .choose-icon img {
+        font-size: 35px;
+        color: #2563eb;
+      }
+      .choose-card h3 {
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: #111827;
+      }
+      .choose-card p {
+        font-size: 17px;
+        color: #666;
+        line-height: 28px;
+      }
+
+      .site-footer {
+        background: #0a2a66;
+        color: hsl(0, 11%, 95%);
+        padding: 40px 20px 20px; /*upar 40px, niche 20px*/
+        margin-top: 50px; /*upar wale content se gap*/
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*4 barabar column banega*/
+        gap: 30px; /*column ke bich gap*/
+        max-width: 1200px;
+        margin: 0 auto; /*bich me*/
+      }
+
+      .footer-col ul {
+        list-style: none; /*dot hata do*/
+        padding: 0;
+      }
+
+      .footer-col a {
+        text-decoration: none; /*underline hata do*/
+        font-size: 14px;
+        line-height: 2; /*line ke beech gap*/
+        color: white;
+      }
+
+      .footer-buttom {
+        text-align: center;
+        border-top: 1px solid #ddd; /*upar halki line*/
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 13px;
+      }
+      .f {
+        text-align: center;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li {
+        text-decoration: none;
+        color: blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="logo">Job<span>Portal</span></h2>
+
+      <nav>
+        <a href="jobportal.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="About.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>About Us</h1>
+          <p>Connecting Talent with Opportunity</p>
+        </div>
+      </div>
+    </main>
+
+    <section class="about">
+      <div class="about-img">
+        <img src="./images/images - Copy (2).jpg" />
+      </div>
+      <div class="about-content">
+        <h4>ABOUT JOBNEST</h4>
+        <h1>Who We Are</h1>
+
+        <p>
+          JobNest is an online job portal that connects talented job seekers
+          with trusted companies. Our platform makes job searching simple, fast.
+          and reliable.
+        </p>
+
+        <p>
+          We aim to bridge the gap between employers and candidates by providing
+          a smart, secure, and user-friendly platform.
+        </p>
+
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <section class="mission-section">
+      <div class="mission-box">
+        <div class="icon">
+          <img
+            src="./images/the-arrow-hits-the-target-target-icon-blue-target-icon-blue-comment-sign-vector.jpg"
+            style="width: 90px; height: auto"
+          />
+        </div>
+
+        <div class="text-2">
+          <h2>Our Mission</h2>
+          <p>
+            Our mission is to empower job seekers by providing the right
+            Opportunities and resources to help them build successful careers.
+          </p>
+        </div>
+      </div>
+
+      <div class="mission-box">
+        <div class="icon">
+          <img
+            src="./images/blue-eye-icon-vector-look-260nw-1338850184.jpg"
+            style="width: 100px; height: auto"
+          />
+        </div>
+
+        <div class="text-2">
+          <h2>Our Vision</h2>
+          <p>
+            Our vision is to become the most trustedd job portal, known for our
+            commitment to excellence, transparency, and innovation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose">
+      <h5>WHY CHOOSE JOBNEST</h5>
+      <h1>Why Choose Us</h1>
+
+      <div class="choose-container">
+        <div class="choose-card">
+          <div class="choose-icon">
+            <img
+              src="./images/briefcase.png"
+              style="width: 50px; height: auto"
+            />
+          </div>
+          <h3>Thousands of Jobs</h3>
+          <p>Explore thousands of job opportunities from top companies.</p>
+        </div>
+
+        <div class="choose-card">
+          <div class="choose-icon">
+            <img
+              src="./images/company-profile-3d-icon-png-download-8867505.webp"
+              style="width: 50px; height: auto"
+            />
+          </div>
+          <h3>Top Companies</h3>
+          <p>connect with verified companies and grow your career.</p>
+        </div>
+
+        <div class="choose-card">
+          <div class="choose-icon">
+            <img src="./images/img.png" style="width: 50px; height: auto" />
+          </div>
+          <h3>Secure & Safe</h3>
+          <p>
+            We ensure a secure experience for both job seekers and employers.
+          </p>
+        </div>
+
+        <div class="choose-card">
+          <div class="choose-icon">
+            <img src="./images/images.jpg" style="width: 100px; height: auto" />
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Our support team is always here to help you anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <!--col 1: about us-->
+          <h2>JobPortal</h2>
+          <p>
+            Find your dream job from thousands of opportunities around the
+            world.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <!--col 2: quick links-->
+          <h2>For Job Seekers</h2>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Upload Resume</a></li>
+            <li><a href="#">Job Alerts</a></li>
+            <li><a href="#">Career Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 3:customer service-->
+          <h2>For Employers</h2>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Browser Candidates</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Employers Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 4: contact us-->
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & COnditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

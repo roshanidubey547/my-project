@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Find your Dream Job</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f5f9ff;
+        color: white;
+      }
+      .section-project h2 {
+        font-size: 32px;
+        color: #222;
+      }
+      .logo span {
+        color: rgb(22, 204, 204);
+      }
+      .logo {
+        color: black;
+      }
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+
+      .hero {
+        width: 1366px;
+        height: 300px;
+        border: 1px solid rebeccapurple;
+        background:
+          /* linear-gradient(rgba(0, 41, 102, 0.75), rgba(0, 41, 102, 0.75)), */ url("./images/group-4-indian-corporate-professionals-600nw-2646166281.webp");
+        background-size: 1366px, cover;
+        background-position: center -260px;
+        background-repeat: no-repeat;
+      }
+      .hero-text {
+        flex: 1;
+        line-height: 2pc;
+        padding: 50px;
+        margin-left: 70px;
+      }
+      .hero-text span {
+        color: blueviolet;
+      }
+      p {
+        line-height: 1.2;
+        margin-top: 20px;
+      }
+
+      .search-box {
+        width: 80%;
+        margin: 40px auto;
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 35px;
+      }
+      .search-box input,
+      .search-box select {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .search-box button {
+        padding: 15px 35px;
+        background: #1565ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .search-box button:hover {
+        background: #0048d8;
+      }
+      .cards {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 90px;
+        margin-top: -90px;
+      }
+      .card {
+        width: 320px;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: 0.4s;
+      }
+      .card:hover {
+        transform: translatey(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+      .card img {
+        width: 100%;
+        /* height: 100px; */
+        object-fit: cover;
+      }
+      .card h3 {
+        padding: 15px;
+        font-size: 24px;
+        margin-left: 20px;
+      }
+      .card p {
+        /* padding: 0 15px 20px; */
+        color: #666;
+        margin-top: -10px;
+        margin-left: 40px;
+      }
+      .section-p {
+        padding: 30px;
+        margin-left: 90px;
+      }
+
+      /*artical*/
+      .featured-jobs {
+        width: 90%;
+        max-width: 1100px;
+        margin: 50px auto;
+        margin-top: -40px;
+      }
+
+      .heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .heading h2 {
+        font-size: 32px;
+        color: #222;
+      }
+
+      .heading a {
+        text-decoration: none;
+        color: #2563eb;
+        font-weight: 600;
+      }
+      .job-card {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5;
+        transition: 3s;
+      }
+
+      .job-card:hover {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+      .job-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .job-left img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+      }
+      .job-left h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: #222;
+      }
+      .job-left p {
+        color: #666;
+        font-size: 16px;
+      }
+      .job-right {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .badge {
+        background: #dcfce7;
+        color: #16a34a;
+        padding: 18px 18px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .job-right h4 {
+        font-size: 20px;
+        color: #222;
+      }
+      .job-right p {
+        color: #777;
+      }
+      .view-btn {
+        width: 100%;
+        padding: 18px;
+        margin-top: 20px;
+        border: 2px solid #2563eb;
+        background: #fff;
+        color: #2563eb;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      /* .view-btn button {
+        width: 100%;
+        padding: 15px;
+        background: white;
+        color: #0d6efd;
+        border: 1px solid #0d6efd;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+      } */
+      .view-btn:hover {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      .site-footer {
+        background: #0a2a66;
+        color: hsl(0, 11%, 95%);
+        padding: 40px 20px 20px; /*upar 40px, niche 20px*/
+        margin-top: 50px; /*upar wale content se gap*/
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*4 barabar column banega*/
+        gap: 30px; /*column ke bich gap*/
+        max-width: 1200px;
+        margin: 0 auto; /*bich me*/
+      }
+
+      .footer-col ul {
+        list-style: none; /*dot hata do*/
+        padding: 0;
+      }
+
+      .footer-col a {
+        text-decoration: none; /*underline hata do*/
+        font-size: 14px;
+        line-height: 2; /*line ke beech gap*/
+        color: white;
+      }
+
+      .footer-buttom {
+        text-align: center;
+        border-top: 1px solid #ddd; /*upar halki line*/
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 13px;
+      }
+      .f {
+        text-align: center;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li {
+        text-decoration: none;
+        color: blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="logo">Job<span>Portal</span></h2>
+
+      <nav>
+        <a href="jobportal.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="About.html">About Us</a>
+        <a href="#">Contact Us</a>
+
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </nav>
+    </header>
+
+    <section class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>
+            Find The Job That <br />
+            Fits<span>Your Life</span>
+          </h1>
+          <p>
+            Discover thousandas of job opportunities<br />
+            with all the information you need.
+          </p>
+
+          <div class="search-box">
+            <input type="text" placeholder="job title, keywords, or company" />
+
+            <input type="text" placeholder="Location" />
+
+            <select>
+              <option>job Type</option>
+              <option>Full Time</option>
+              <option>Part Time</option>
+              <option>intership</option>
+              <option>Remote</option>
+            </select>
+
+            <button class="searcbuttoh-btn">Search Jobs</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-project">
+      <h2 class="section-p">Browser Job Categories</h2>
+    </div>
+
+    <main class="cards">
+      <div class="card">
+        <a href="#">
+          <img
+            src="./images/images (9).png"
+            style="width: 50px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>IT & Software</h3>
+        <p>2,345 jobs</p>
+      </div>
+
+      <div class="card">
+        <a href="#">
+          <img
+            src="images/briefcase.png"
+            style="width: 50px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>Marketing</h3>
+        <p>1,245 jobs</p>
+      </div>
+
+      <div class="card">
+        <a href="#">
+          <img
+            src="images/bar-chart-isometric.jpg"
+            style="width: 50px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>Finance</h3>
+        <p>1,856 jobs</p>
+      </div>
+
+      <div class="card">
+        <a href="#">
+          <img
+            src="images/12533276.png"
+            style="width: 50px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>Human Resource</h3>
+        <p>945 jobs</p>
+      </div>
+
+      <div class="card">
+        <a href="#">
+          <img
+            src="images/2344200.png"
+            style="width: 50px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>Design</h3>
+        <p>1,223jobs</p>
+      </div>
+
+      <div class="card">
+        <a href="#">
+          <img
+            src="images/images.jpg"
+            style="width: 80px; height: auto; margin-left: 55px"
+          />
+        </a>
+        <h3>Customer Support</h3>
+        <p>1,478 jobs</p>
+      </div>
+    </main>
+
+    <article class="featured-jobs">
+      <div class="heading">
+        <h2>Featured Jobs</h2>
+        <a href="#">View All Jobs</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-left">
+          <img src="./images/images (9).png" />
+
+          <div>
+            <h3>Frontend Developer</h3>
+            <p>Google</p>
+          </div>
+        </div>
+
+        <div class="job-right">
+          <span class="badg">Full Time</span>
+          <h4>Rs8 - 12 LPA</h4>
+          <p>2d ago</p>
+        </div>
+      </div>
+
+      <!--job 2-->
+      <div class="job-card">
+        <div class="job-left">
+          <img src="images/microsoft_logo.svg" />
+
+          <div>
+            <h3>Software Enginner</h3>
+            <p>Microsoft</p>
+          </div>
+        </div>
+
+        <div class="job-right">
+          <span class="badg">Full Time</span>
+          <h4>Rs10 - 18 LPA</h4>
+          <p>3d ago</p>
+        </div>
+      </div>
+
+      <!--job 3-->
+      <div class="job-card">
+        <div class="job-left">
+          <img src="./images/images (4).jpg" />
+
+          <div>
+            <h3>Backend Developer</h3>
+            <p>Amazon</p>
+          </div>
+        </div>
+
+        <div class="job-right">
+          <span class="badg">Full Time</span>
+
+          <h4>Rs7 - 11 LPA</h4>
+          <p>5d ago</p>
+        </div>
+      </div>
+
+      <button class="view-btn">View All Jobs</button>
+    </article>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <!--col 1: about us-->
+          <h2>JobPortal</h2>
+          <p>
+            Find your dream job from thousands of opportunities around the
+            world.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <!--col 2: quick links-->
+          <h2>For Job Seekers</h2>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Upload Resume</a></li>
+            <li><a href="#">Job Alerts</a></li>
+            <li><a href="#">Career Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 3:customer service-->
+          <h2>For Employers</h2>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Browser Candidates</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Employers Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 4: contact us-->
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & COnditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

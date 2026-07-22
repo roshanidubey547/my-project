@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register webpage</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f5f9ff;
+        color: white;
+      }
+      .section-project h2 {
+        font-size: 32px;
+        color: #222;
+      }
+      .logo span {
+        color: rgb(22, 204, 204);
+      }
+      .logo {
+        color: black;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+
+      .hero {
+        width: 1366px;
+        height: 200px;
+        border: 1px solid rebeccapurple;
+        background-image: url("./images/360_F_514204772_mT0EpTdZkScyiRPn2PInaKaqd88QGrzE.jpg");
+        background-size: 1366px, cover;
+        background-position: center -30px;
+        background-repeat: no-repeat;
+      }
+
+      .hero-text {
+        flex: 1;
+        line-height: 2pc;
+        padding: 70px;
+        margin-left: 170px;
+        color: black;
+      }
+      .hero-text h1 {
+        margin-left: 350px;
+      }
+      .hero-text p {
+        margin-left: 305px;
+      }
+
+      .register-section {
+        padding: 80px 10%;
+        background: lightcyan;
+      }
+      .register-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+      }
+      .left-box {
+        flex: 1;
+        text-align: center;
+      }
+      .left-box h2 {
+        margin-top: 20px;
+        font-size: 32px;
+        color: #222;
+      }
+      .left-box img {
+        width: 100%;
+        max-width: 420px;
+      }
+      .left-box p {
+        margin-top: 15px;
+        color: #666;
+        line-height: 28px;
+        font-size: 16px;
+      }
+      .register-box {
+        flex: 1;
+        background: #fff;
+        padding: 40px;
+        border: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .register-box h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #0077ff;
+      }
+      .register-box form {
+        display: flex;
+        flex-direction: column;
+      }
+      .register-box input,
+      .register-box select {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 18px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+      }
+      .check input {
+        width: auto;
+        margin: o;
+      }
+      input[type="checkbox"] {
+        width: auto;
+        margin-right: 6px;
+      }
+      .register-box input:focus,
+      .register-box select:focus {
+        border-color: #0077ff;
+      }
+      .check {
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .register-box button {
+        width: 100%;
+        padding: 15px;
+        background: #0077ff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 17px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .register-box button:hover {
+        background: #005fd6;
+      }
+      .login {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .login a {
+        color: #0077ff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .site-footer {
+        background: #0a2a66;
+        color: hsl(0, 11%, 95%);
+        padding: 40px 20px 20px; /*upar 40px, niche 20px*/
+        margin-top: 50px; /*upar wale content se gap*/
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*4 barabar column banega*/
+        gap: 30px; /*column ke bich gap*/
+        max-width: 1200px;
+        margin: 0 auto; /*bich me*/
+      }
+
+      .footer-col ul {
+        list-style: none; /*dot hata do*/
+        padding: 0;
+      }
+
+      .footer-col a {
+        text-decoration: none; /*underline hata do*/
+        color: white;
+        font-size: 14px;
+        line-height: 2; /*line ke beech gap*/
+      }
+
+      .footer-buttom {
+        text-align: center;
+        border-top: 1px solid #ddd; /*upar halki line*/
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 13px;
+      }
+      .f {
+        text-align: center;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li {
+        text-decoration: none;
+        color: blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="logo">Job<span>Portal</span></h2>
+
+      <nav>
+        <a href="jobportal.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="About.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Create Your Account</h1>
+        </div>
+      </div>
+    </main>
+
+    <section class="register-section">
+      <div class="register-container">
+        <!--left side-->
+        <div class="left-box">
+          <img
+            src="./images/online-registration-illustration-design-concept-websites-landing-pages-other_108061-938 (1).avif"
+          />
+          <h2>Join JobNest Today!</h2>
+          <p>
+            Create Your account and unlock thousands of job opportunities. Build
+            Your porfile, apply to jobs, and connect with top employers.
+          </p>
+        </div>
+
+        <!--right side-->
+        <div class="register-box">
+          <h2>Register</h2>
+
+          <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter Your full name" />
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter Your emal address" />
+            <label>Phone Number</label>
+            <input type="tel" placeholder="Enter Your Phone number" />
+
+            <label>Register As</label>
+            <select>
+              <option>select Role</option>
+              <option>Job Seeker</option>
+              <option>Employer</option>
+            </select>
+
+            <label>password</label>
+            <input type="password" placeholder="Enter Your password" />
+            <label>Confirm password</label>
+            <input type="password" placeholder="Confirm Your password" />
+
+            <label type="check">
+              <input type="checkbox" />
+              <span>I agree to the Terms & Conditions</span>
+            </label>
+            <button type="submit">Register</button>
+
+            <p class="login">
+              Alrasdy have an account&#63;
+
+              <a href="login.html">Login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <!--col 1: about us-->
+          <h2>JobPortal</h2>
+          <p>
+            Find your dream job from thousands of opportunities around the
+            world.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <!--col 2: quick links-->
+          <h2>For Job Seekers</h2>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Upload Resume</a></li>
+            <li><a href="#">Job Alerts</a></li>
+            <li><a href="#">Career Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 3:customer service-->
+          <h2>For Employers</h2>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Browser Candidates</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Employers Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 4: contact us-->
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & COnditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

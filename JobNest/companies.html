@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Companies - JobNest</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f5f9ff;
+        color: white;
+      }
+      .section-project h2 {
+        font-size: 32px;
+        color: #222;
+      }
+      .logo span {
+        color: rgb(22, 204, 204);
+      }
+      .logo {
+        color: black;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+
+      .hero {
+        width: 1366px;
+        height: 170px;
+        border: 1px solid rebeccapurple;
+        background-image: url("./images/images\ -\ Copy.jpg");
+        background-size: 1366px, cover;
+        background-position: center -150px;
+        background-repeat: no-repeat;
+      }
+      .hero-text {
+        flex: 1;
+        line-height: 2pc;
+        padding: 50px;
+        margin-left: 70px;
+        color: black;
+      }
+      /* .hero-text span {
+        color: blueviolet;
+      } */
+      p {
+        line-height: 1;
+        margin-top: 20px;
+      }
+
+      .search-box {
+        width: 80%;
+        margin: 40px auto;
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 35px;
+        margin-top: 20px;
+      }
+      .search-box input,
+      .search-box select {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .search-box button {
+        padding: 15px 35px;
+        background: #1565ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .search-box button:hover {
+        background: #0048d8;
+      }
+
+      /*=====Companies section=====*/
+      .companies {
+        width: 90%;
+        margin: 70px auto;
+      }
+
+      .company-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      .company-header h2 {
+        font-size: 34px;
+        font-weight: 700;
+        color: #1f2937;
+      }
+      .company-filter {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .company-filter p {
+        font-size: 15px;
+        color: #777;
+      }
+      .company-filter select {
+        width: 180px;
+        height: 48px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0 15px;
+        font-size: 15px;
+        outline: none;
+        cursor: pointer;
+        background: #fff;
+      }
+
+      .company-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+      }
+      .company-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        text-align: center;
+        padding: 30px 20px;
+        transition: 0.3s;
+      }
+      .company-card:hover {
+        transform: translate(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+      .company-card img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 18px;
+      }
+      .company-card h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+        color: #222;
+      }
+      .company-card p {
+        color: #666;
+        margin-bottom: 18px;
+        font-size: 15px;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .info i {
+        color: #666;
+        font-size: 14px;
+      }
+      .company-card a {
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        border: 1px solid #2563eb;
+        color: #2563eb;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .company-card a:hover {
+        background: #2563eb;
+        color: #fff;
+      }
+      /*====== Hover Effect =====*/
+      .company-card {
+        transition: 0.3c ease;
+      }
+      /* .company-card:hover {
+        transform: translate(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+      }
+      .company-grid {
+        grid-template-columns: repeat(4, 1fr);
+      } */
+
+      .site-footer {
+        background: #0a2a66;
+        color: hsl(0, 11%, 95%);
+        padding: 40px 20px 20px; /*upar 40px, niche 20px*/
+        margin-top: 50px; /*upar wale content se gap*/
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*4 barabar column banega*/
+        gap: 30px; /*column ke bich gap*/
+        max-width: 1200px;
+        margin: 0 auto; /*bich me*/
+      }
+
+      .footer-col ul {
+        list-style: none; /*dot hata do*/
+        padding: 0;
+      }
+
+      .footer-col a {
+        text-decoration: none; /*underline hata do*/
+        color: white;
+        font-size: 14px;
+        line-height: 2; /*line ke beech gap*/
+      }
+
+      .footer-buttom {
+        text-align: center;
+        border-top: 1px solid #ddd; /*upar halki line*/
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 13px;
+      }
+      .f {
+        text-align: center;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li {
+        text-decoration: none;
+        color: blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="logo">Job<span>Portal</span></h2>
+
+      <nav>
+        <a href="jobportal.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="About.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </nav>
+    </header>
+
+    <section class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Companies</h1>
+          <p>
+            Explore top companies and discover exciting career opportunities.
+          </p>
+
+          <div class="search-box">
+            <input type="text" placeholder="Search company name, skills..." />
+            <select>
+              <option>All Industries</option>
+              <option>IT services</option>
+              <option>Software</option>
+              <option>Banking</option>
+              <option>Finance</option>
+              <option>Education</option>
+              <option>E-Commerce</option>
+              <option>Healthcare</option>
+            </select>
+
+            <select>
+              <option>ALL Locations</option>
+              <option>Bangalore</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Mumbi</option>
+              <option>Chenni</option>
+              <option>Delhi</option>
+              <option>Noida</option>
+            </select>
+
+            <button class="searcbuttoh-btn">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="companies">
+      <div class="company-header">
+        <h2>All Companies</h2>
+
+        <div class="company-filter">
+          <p>Showing 1-12 of 48 Companies</p>
+          <select>
+            <option>Newest Firest</option>
+            <option>Oldest Firest</option>
+            <option>A - Z</option>
+            <option>Z - A</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="company-grid">
+        <!--company 1-->
+        <div class="company-card">
+          <img src="./images/images (9).png" />
+          <h3>Google</h3>
+          <p>Technology</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Bangalore,India</i></span>
+            <span><i class="fa-solid fa-briefcase">25 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 2-->
+        <div class="company-card">
+          <img src="./images/microsoft_logo.svg" />
+          <h3>Microsoft</h3>
+          <p>Software</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Hyderabad,India</i></span>
+            <span><i class="fa-solid fa-briefcase">18 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 3-->
+        <div class="company-card">
+          <img src="./images/images (4).jpg" />
+          <h3>Amazon</h3>
+          <p>E-commerce</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Pune,India</i></span>
+            <span><i class="fa-solid fa-briefcase">32 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 4-->
+        <div class="company-card">
+          <img src="./images/Infosys-Logo-500x313.png" />
+          <h3>Infosys</h3>
+          <p>IT services</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Nodia,India</i></span>
+            <span><i class="fa-solid fa-briefcase">15 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 5-->
+        <div class="company-card">
+          <img src="./images/images (4).png" />
+          <h3>Wipro</h3>
+          <p>IT Company</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Chennai,India</i></span>
+            <span><i class="fa-solid fa-briefcase">20 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 6-->
+        <div class="company-card">
+          <img src="./images/images (2).jpg" />
+          <h3>TCS</h3>
+          <p>Technology</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">MumbiI,India</i></span>
+            <span><i class="fa-solid fa-briefcase">40 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 7-->
+        <div class="company-card">
+          <img src="./images/images (5).png" />
+          <h3>Accenture</h3>
+          <p>Consulting</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Bangalore,India</i></span>
+            <span><i class="fa-solid fa-briefcase">32 Jobs</i></span>
+          </div>
+          <a href="#">open jobs</a>
+        </div>
+
+        <!--company 8-->
+        <div class="company-card">
+          <img src="./images/images (6).png" />
+          <h3>IBM</h3>
+          <p>IT SSerivices</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Kolkata,India</i></span>
+            <span><i class="fa-solid fa-briefcase">28 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 9-->
+        <div class="company-card">
+          <img src="./images/images (7).png" />
+          <h3>HCL Technologies</h3>
+          <p>IT services</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Noida,India</i></span>
+            <span><i class="fa-solid fa-briefcase">26 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 10-->
+        <div class="company-card">
+          <img src="./images/images (3).jpg" />
+          <h3>Cognizant</h3>
+          <p>IT services</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Hyderabad,India</i></span>
+            <span><i class="fa-solid fa-briefcase">22 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 11-->
+        <div class="company-card">
+          <img src="./images/images (8).png" />
+          <h3>Tech Mahindra</h3>
+          <p>IT Services</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Pune,India</i></span>
+            <span><i class="fa-solid fa-briefcase">18 Jobs</i></span>
+          </div>
+          <a href="#">Open Jobs</a>
+        </div>
+
+        <!--company 12-->
+        <div class="company-card">
+          <img src="./images/DeloitteNewSmall.png" />
+          <h3>Deloitte</h3>
+          <p>Consulting</p>
+
+          <div class="info">
+            <span><i class="fa-solid fa-location-dot">Gurgaon,India</i></span>
+            <span><i class="fa-solid fa-briefcase">16 Jobs</i></span>
+          </div>
+          <a href="#">View Company</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <!--col 1: about us-->
+          <h2>JobPortal</h2>
+          <p>
+            Find your dream job from thousands of opportunities around the
+            world.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <!--col 2: quick links-->
+          <h2>For Job Seekers</h2>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Upload Resume</a></li>
+            <li><a href="#">Job Alerts</a></li>
+            <li><a href="#">Career Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 3:customer service-->
+          <h2>For Employers</h2>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Browser Candidates</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Employers Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 4: contact us-->
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & COnditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

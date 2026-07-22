@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JobPortal</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f5f9ff;
+        color: white;
+      }
+      .section-project h2 {
+        font-size: 32px;
+        color: #222;
+      }
+      .logo span {
+        color: rgb(22, 204, 204);
+      }
+      .logo {
+        color: black;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        background: green;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: darkgreen;
+      }
+
+      .hero {
+        width: 1366px;
+        height: 200px;
+        border: 1px solid rebeccapurple;
+        background-image: url("./images/modern-abstract-blue-background-with-dark-gradient-geometric-layers-technology-corporate-design_361591-5458.avif");
+        background-size: 1366px, cover;
+        background-position: center -300px;
+        background-repeat: no-repeat;
+      }
+
+      .hero-text {
+        flex: 1;
+        line-height: 2pc;
+        padding: 30px;
+        margin-left: 170px;
+        color: white;
+      }
+      .hero-text h1 {
+        margin-left: 350px;
+      }
+      .hero-text p {
+        margin-left: 305px;
+      }
+      .search-box {
+        width: 80%;
+        margin: 40px auto;
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-left: 35px;
+        margin: 10px;
+      }
+      .search-box input,
+      .search-box select {
+        flex: 1;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .search-box button {
+        padding: 15px 35px;
+        background: #1565ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .search-box button:hover {
+        background: #0048d8;
+      }
+
+      /*=====jobs page=====*/
+      .jobs-page {
+        width: 90%;
+        margin: 40px auto;
+      }
+      /*=====filter box=====*/
+      .filter-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 15px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        flex-wrap: wrap;
+      }
+      /*=====single filter=====*/
+      .filter-item {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 160px;
+      }
+      /*=====label=====*/
+      .filter-item label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #222;
+      }
+
+      /*=====select=====*/
+      .filter-item select {
+        height: 45px;
+        border: 10x solid #ddd;
+        border-radius: 8px;
+        padding: 0 12px;
+        font-size: 15px;
+        outline: none;
+        cursor: pointer;
+      }
+      /*=====button=====*/
+      .reset-btn {
+        height: 45px;
+        padding: 0 25px;
+        border: none;
+        border-radius: 8px;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .reset-btn:hover {
+        background: #084fc7;
+      }
+
+      .jobs-container {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+        align-items: flex-start;
+      }
+      .jobs-left {
+        flex: 3;
+      }
+      .jobs-right {
+        flex: 1;
+      }
+      .job-count {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #444;
+      }
+      .job-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+      .job-card img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-right: 20px;
+      }
+      .job-info {
+        flex: 1;
+      }
+      .job-info h3 {
+        font-size: 22px;
+        color: #222;
+        margin-bottom: 8px;
+      }
+      .job-info h4 {
+        color: #666;
+        font-size: 15px;
+      }
+      .job-info p {
+        color: #666;
+        font-size: 15px;
+      }
+
+      /*=====salary=====*/
+      .salary-box {
+        text-align: right;
+      }
+      .salary-box h3 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+      }
+      .salary-box button {
+        background: #0d6efd;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .salary-box button:hover {
+        background: #084fc7;
+      }
+
+      /*=====right side=====*/
+      .jobs-right {
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+      .jobs-right h2 {
+        margin-bottom: 20px;
+      }
+      .jobs-right ul {
+        list-style: none;
+      }
+      .jobs-right ul li {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .jobs-right ul li span {
+        background: #0d6efd;
+        color: #fff;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+      }
+      .view-all {
+        display: inline-block;
+        margin-top: 20px;
+        color: #0d6efd;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .view-all:hover {
+        text-decoration: underline;
+      }
+
+      .site-footer {
+        background: #0a2a66;
+        color: hsl(0, 11%, 95%);
+        padding: 40px 20px 20px; /*upar 40px, niche 20px*/
+        margin-top: 50px; /*upar wale content se gap*/
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /*4 barabar column banega*/
+        gap: 30px; /*column ke bich gap*/
+        max-width: 1200px;
+        margin: 0 auto; /*bich me*/
+      }
+
+      .footer-col ul {
+        list-style: none; /*dot hata do*/
+        padding: 0;
+      }
+
+      .footer-col a {
+        text-decoration: none; /*underline hata do*/
+        color: white;
+        font-size: 14px;
+        line-height: 2; /*line ke beech gap*/
+      }
+
+      .footer-buttom {
+        text-align: center;
+        border-top: 1px solid #ddd; /*upar halki line*/
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 13px;
+      }
+      .f {
+        text-align: center;
+        padding: 20px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      nav ul li {
+        text-decoration: none;
+        color: blue;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <h2 class="logo">Job<span>Portal</span></h2>
+
+      <nav>
+        <a href="jobportal.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+
+        <a href="login.html" class="btn">Login</a>
+        <a href="register.html" class="btn">Register</a>
+      </nav>
+    </header>
+
+    <section class="container">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Find Your Dream Job</h1>
+          <p>Discover thousands of job opportunities and build your Career</p>
+
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="job title, keywords, or company"
+              autofocus
+            />
+
+            <input type="text" placeholder="Location" />
+
+            <select>
+              <option>job Type</option>
+              <option>Full Time</option>
+              <option>Part Time</option>
+              <option>intership</option>
+              <option>Remote</option>
+            </select>
+
+            <button class="search-btn">Search Jobs</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--jobs page-->
+    <main class="jobs-page">
+      <!--filter section-->
+      <div class="filter-box">
+        <!--location-->
+        <div class="filter-item">
+          <label>Location</label>
+          <select>
+            <option>All Location</option>
+            <option>Lucknow</option>
+            <option>Bangalore</option>
+            <option>Pune</option>
+          </select>
+        </div>
+
+        <!--Category-->
+        <div class="filter-item">
+          <label>Category</label>
+          <select>
+            <option>All Category</option>
+            <option>Development</option>
+            <option>Design</option>
+            <option>Markiting</option>
+          </select>
+        </div>
+
+        <!--job type-->
+        <div class="filter-item">
+          <label>Job Type</label>
+          <select>
+            <option>All Job Type</option>
+            <option>Full Time</option>
+            <option>Part Time</option>
+            <option>Remote</option>
+          </select>
+        </div>
+
+        <!--Experience-->
+        <div class="filter-item">
+          <label>xperience</label>
+          <select>
+            <option>All Experience</option>
+            <option>0-1 Years</option>
+            <option>2-4 Years</option>
+            <option>5+ Years</option>
+          </select>
+        </div>
+
+        <!--salary-->
+        <div class="filter-item">
+          <label>Salary</label>
+          <select>
+            <option>All Salary</option>
+            <option>3-5 LPA</option>
+            <option>6-10 LPA</option>
+            <option>10+ LPA</option>
+          </select>
+        </div>
+
+        <!--Button-->
+        <button class="reset-btn">Reset Filter</button>
+      </div>
+
+      <!--main content-->
+      <div class="jobs-container">
+        <!--left side-->
+        <div class="jobs-left">
+          <p class="job-count">Showing 1-10 of 200+ jobs</p>
+
+          <!--job card 1-->
+          <div class="job-card">
+            <img src="./images/images (9).png" />
+
+            <div class="job-info">
+              <h3>Frontend Developer</h3>
+              <h4>Google</h4>
+
+              <p>Bangalore, India | Full Time | 2-4 Yrs Exp</p>
+            </div>
+
+            <div class="salary-box">
+              <h3>Rs 8 - 12 LPA</h3>
+              <button>Apply Now</button>
+            </div>
+          </div>
+
+          <!--job card 2-->
+          <div class="job-card">
+            <img src="./images/microsoft_logo.svg " alt="Microsoft" />
+
+            <div class="job-info">
+              <h3>Software Engineer</h3>
+              <h4>Microsoft</h4>
+
+              <p>Hyderabad, India | Full Time | 3-5 Yrs Exp</p>
+            </div>
+
+            <div class="salary-box">
+              <h3>Rs 10 - 15 LPA</h3>
+              <button>Apply Now</button>
+            </div>
+          </div>
+
+          <!--job card 3-->
+          <div class="job-card">
+            <img src="./images/images (4).jpg" alt="Amazon" />
+
+            <div class="job-info">
+              <h3>Backend Developer</h3>
+              <h4>Amazon</h4>
+
+              <p>Pune, India | Full Time | 2-4 Yrs Exp</p>
+            </div>
+
+            <div class="salary-box">
+              <h3>Rs 7 - 11 LPA</h3>
+              <button>Apply Now</button>
+            </div>
+          </div>
+
+          <!--job card 4-->
+          <div class="job-card">
+            <img src="./images/Infosys-Logo-500x313.png" alt="Infosys" />
+
+            <div class="job-info">
+              <h3>System Analiyst</h3>
+              <h4>Infosys</h4>
+
+              <p>Bangalore, India | Full Time | 2-4 Yrs Exp</p>
+            </div>
+
+            <div class="salary-box">
+              <h3>Rs 6 - 9 LPA</h3>
+              <button>Apply Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!--right side-->
+        <div class="jobs-right">
+          <h2>Job Categories</h2>
+
+          <ul>
+            <li>Development <span>120</span></li>
+            <li>Design <span>45</span></li>
+            <li>Markiting <span>30</span></li>
+            <li>Sales <span>25</span></li>
+            <li>Human Resource <span>18</span></li>
+            <li>Data Science <span>22</span></li>
+            <li>Customer Support<span>15</span></li>
+            <li>Finance <span>10</span></li>
+          </ul>
+
+          <a href="#" class="view-all">View All Categories</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <!--col 1: about us-->
+          <h2>JobPortal</h2>
+          <p>
+            Find your dream job from thousands of opportunities around the
+            world.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <!--col 2: quick links-->
+          <h2>For Job Seekers</h2>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Upload Resume</a></li>
+            <li><a href="#">Job Alerts</a></li>
+            <li><a href="#">Career Advice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 3:customer service-->
+          <h2>For Employers</h2>
+          <ul>
+            <li><a href="#">Post a Job</a></li>
+            <li><a href="#">Browser Candidates</a></li>
+            <li><a href="#">Pricing Plans</a></li>
+            <li><a href="#">Employers Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <!--col 4: contact us-->
+          <h2>Company</h2>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & COnditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
